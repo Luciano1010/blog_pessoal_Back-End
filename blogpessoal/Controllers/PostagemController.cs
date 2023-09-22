@@ -1,0 +1,43 @@
+﻿using blogpessoal.Model;
+using blogpessoal.Service;
+using FluentValidation;
+using Microsoft.AspNetCore.Mvc;
+
+namespace blogpessoal.Controllers
+{
+    [Route("~/postagens")]
+
+    [ApiController]
+    public class PostagemController : ControllerBase
+    {
+       
+            private readonly IPostagemService _postagemService;
+            private readonly IValidator<Postagem> _postagemValidator;
+       
+        public  PostagemController(IPostagemService postagemService, IValidator<Postagem> postagemValidator)
+
+        {
+            _postagemService = postagemService;
+            _postagemValidator = postagemValidator;
+        }
+
+        [HttpGet] // end point
+
+        public async Task<ActionResult> GetAll()  // quando colocar o async tenho q colocar o await
+             
+        {
+            return Ok(await _postagemService.GetAll());
+        }
+            
+    } 
+
+}
+    
+        
+        
+
+
+
+        
+    
+    
