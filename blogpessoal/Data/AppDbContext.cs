@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace blogpessoal.Data
 {
+    // classe do banco de dados
     public class AppDbContext: DbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
@@ -15,10 +16,10 @@ namespace blogpessoal.Data
         }
 
       
-
+       
         public DbSet<Postagem> Postagens { get; set; } = null!; // registrar  Dbset - Obejto responsavel por manipular a Tabela
 
-        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default) // ele salva os dados 
         {
             var insertedEntries = this.ChangeTracker.Entries()
                                    .Where(x => x.State == EntityState.Added)
@@ -37,12 +38,12 @@ namespace blogpessoal.Data
                        .Where(x => x.State == EntityState.Modified)
                        .Select(x => x.Entity);
 
-            foreach (var modifiedEntry in modifiedEntries)
+            foreach (var modifiedEntry in modifiedEntries) // procurar todos os objetos persistidos ao mesmo tempo 
             {
                 //Se uma propriedade da Classe Auditable estiver sendo atualizada.  
                 if (modifiedEntry is Auditable auditableEntity)
                 {
-                    auditableEntity.Data = DateTimeOffset.UtcNow;
+                    auditableEntity.Data = DateTimeOffset.UtcNow; // ele atualiza a data da postagem
                 }
             }
 

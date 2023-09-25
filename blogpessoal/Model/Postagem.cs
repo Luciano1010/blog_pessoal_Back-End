@@ -9,7 +9,7 @@ namespace blogpessoal.Model
 
         [Key] // key chave primaria  // key e databasegenerated estou definindo como uma coluna do banco de dados vai funcionar
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)] // identity (1,1) auto incremento
-        public long id { get; set; } // long armazena um grande numero de dados numericos e o id vai indemtificar as postagens get pegar o id e set pra modificar o valor do id
+        public long Id { get; set; } // long armazena um grande numero de dados numericos e o id vai indemtificar as postagens get pegar o id e set pra modificar o valor do id
 
         // titulo
         [Column(TypeName = "Varchar")] // o tipo de dado que vai na coluna postagemé do tipo varchar

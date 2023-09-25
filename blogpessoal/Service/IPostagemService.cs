@@ -8,11 +8,11 @@ namespace blogpessoal.Service
 
         Task<Postagem?> GetById(long id); // metodo consulta por Id a postagem
 
-        Task<Postagem?> GetByTitulo(string Titulo); // metodo de busca pelo tipo da postagem
+        Task<IEnumerable<Postagem>> GetByTitulo(string Titulo); // metodo de busca pelo tipo da postagem
     
-        Task<Postagem?> Create(Postagem postagem); // metodo criar
+        Task<Postagem?> Create(Postagem postagem); // metodo criar nova postagem
 
-        Task<Postagem?> Upadte(Postagem postagem); // metodo de atuaizar
+        Task<Postagem?> Update(Postagem postagem); // metodo de atuaizar
 
         Task Delete(Postagem postagem); // metodo deletar
     }// taks é pra trabalhar com programação assincrona

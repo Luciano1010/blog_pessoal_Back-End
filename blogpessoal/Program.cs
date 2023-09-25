@@ -36,7 +36,7 @@ namespace blogpessoal
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            // Configuração do CORS 
+            // Configuração do CORS onde faço a configuração onde habilito que o front converse com o backend
             builder.Services.AddCors(options => 
             {
                 options.AddPolicy(name: "My policy",
