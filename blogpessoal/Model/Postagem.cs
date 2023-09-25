@@ -7,18 +7,18 @@ namespace blogpessoal.Model
     {
         // modelo de dados da postagem 
 
-        [Key] // chave primaria 
+        [Key] // key chave primaria  // key e databasegenerated estou definindo como uma coluna do banco de dados vai funcionar
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)] // identity (1,1) auto incremento
-        public long id { get; set; }
+        public long id { get; set; } // long armazena um grande numero de dados numericos e o id vai indemtificar as postagens get pegar o id e set pra modificar o valor do id
 
         // titulo
-        [Column(TypeName = "Varchar")]
-        [StringLength(100)] // quantidade da digitação
-        public string Titulo { get; set; } = string.Empty;
+        [Column(TypeName = "Varchar")] // o tipo de dado que vai na coluna postagemé do tipo varchar
+        [StringLength(100)] // o limite do titulo da posatgem vai ate 100 caracteres
+        public string Titulo { get; set; } = string.Empty; // aqui estamos declarando a propriedade em si e ela inicia com o valor padrao vazio.
 
         // texto
         [Column(TypeName = "Varchar")] 
-        [StringLength(1000)] // quantidade de digitação
+        [StringLength(1000)] // limite maximo de digitação é 1000
         public string Texto { get; set; } = string.Empty;
 
 

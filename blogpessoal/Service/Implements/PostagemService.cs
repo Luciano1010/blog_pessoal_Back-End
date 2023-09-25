@@ -6,11 +6,11 @@ namespace blogpessoal.Service.Implements
 {
     public class PostagemService : IPostagemService
     {
-        private readonly AppDbContext _context; // injeção de dependecia, quem vai criar os objetos sera o AspNET.
-        public PostagemService(AppDbContext context) 
+        private readonly AppDbContext _context; // campo usado usado para interagir com o banco de dados 
+        public PostagemService(AppDbContext context)// context injeção de dependencia 
 
         {
-            _context = context;
+            _context = context; // isso permite que a classe postagemservice use o contexto banco de dados para realizar operações relacioanados as postagens
         }
             
 
@@ -25,9 +25,9 @@ namespace blogpessoal.Service.Implements
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<Postagem>> GetAll() // quando colocar o async tenho q colocar o await
+        public async Task<IEnumerable<Postagem>> GetAll() // quando colocar o async/await permite que o programa continue rodando enquato busca noa banco de dados
         {
-            return await _context.Postagens.ToListAsync(); // ele vai trazer todas as informções que solicitar
+            return await _context.Postagens.ToListAsync(); 
         }
 
         public Task<Postagem?> GetById(long id)
