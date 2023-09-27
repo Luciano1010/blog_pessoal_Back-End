@@ -21,7 +21,7 @@ namespace blogpessoal.Model
         [StringLength(1000)] // limite maximo de digitação é 1000
         public string Texto { get; set; } = string.Empty;
 
-
+        public virtual Tema? Tema { get; set; } // chave estrangeira vem da tabela Tema, virtula porque pode vim vazio
 
 
     }

@@ -58,12 +58,15 @@ namespace blogpessoal.Controllers
 
             if (!validarPostagem.IsValid)
             {
-                return StatusCode(StatusCodes.Status400BadRequest, validarPostagem);
+                return StatusCode(StatusCodes.Status400BadRequest, validarPostagem); // que indica que a requisição (ou a validação) não foi bem-sucedida, e ainda fornece o q foi escrito no validarPostagem para fornecer mais detalhes
             }
-            await _postagemService.Create(postagem);
+           var Resposta = await _postagemService.Create(postagem); // so tema que nao existe, tratamento de erro
+
+            if (Resposta is null) // um condicional
+                return BadRequest("Tema não encontrado"); // se for nulo retorne essa msg
 
             return CreatedAtAction(nameof(GetbyId), new { id = postagem.Id }, postagem);
-
+           // return volta com um valor, createdAtaction manda o codigo de status 200, nameof é pegar um id novo, new cria o objeto junto com o seu id, postagem é o objeto criado com sucesso. 
         }
 
         [HttpPut] // atualizar
@@ -81,7 +84,7 @@ namespace blogpessoal.Controllers
             var Resposta = await _postagemService.Update(postagem); // aqui atualiza se encontrar o id 
 
             if (Resposta is null)
-                return NotFound("Postagem não Encontrada");
+                return NotFound("Postagem e/ ou Tema Encontrada");
 
             return Ok(Resposta);    
 

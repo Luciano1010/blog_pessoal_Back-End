@@ -18,14 +18,18 @@ namespace blogpessoal.Service.Implements
 
         public async Task<IEnumerable<Postagem>> GetAll() // quando colocar o async/await permite que o programa continue rodando enquato busca noa banco de dados
         {
-            return await _context.Postagens.ToListAsync();
+            return await _context.Postagens
+                .Include(p => p.Tema)
+                .ToListAsync();
         }
 
         public async Task<Postagem?> GetById(long id) // metodo que vou utilizar pra atualizar os dados por id
         {
             try // depois tratamento de erro caso nao ache nenhuma postagem
             {
-                var Postagem = await _context.Postagens.FirstAsync(i => i.Id == id); // primeiro definir o modo de busca
+                var Postagem = await _context.Postagens
+                    .Include(p => p.Tema)
+                    .FirstAsync(i => i.Id == id); // primeiro definir o modo de busca
                 return Postagem;
             }
             catch
@@ -34,21 +38,31 @@ namespace blogpessoal.Service.Implements
             }
         }
 
-        public async Task<IEnumerable<Postagem>> GetByTitulo(string Titulo)                                // semelhante ao like do banco de dados
+        public async Task<IEnumerable<Postagem>> GetByTitulo(string Titulo) // semelhante a consulta like em um banco de dados                          // semelhante ao like do banco de dados
         {
-            var Postagem = await _context.Postagens
-                                 .Where(p => p.Titulo.Contains(Titulo))
-                                 .ToListAsync();
-            return Postagem;
+            var Postagem = await _context.Postagens // (local) _context pega todos os livros de postagens e guarda as informações em Postagem
+                                 .Include(p => p.Tema)
+                                 .Where(p => p.Titulo.Contains(Titulo)) // em postagens tem a palavra Titulo? esse metodo faz a procura
+                                 .ToListAsync(); // ao achar as postagens que contem Titiulo organize em uma lista e que sera guardada na variavel postagem
+            return Postagem; // retorne a lista 
         
         }
 
-        public async Task<Postagem?> Create(Postagem postagem)
+        public async Task<Postagem?> Create(Postagem postagem) //  cria uma nova postagem
         {
-            await _context.Postagens.AddAsync(postagem); // adicionei na fila
-            await _context.SaveChangesAsync(); // persisti a informação no banco
+            if(postagem.Tema is not null)
+            {
+                var BuscaTema = await _context.Temas.FindAsync(postagem.Tema.Id);
+                if (BuscaTema is null)
+                    return null;
+            }
 
-            return postagem;
+            postagem.Tema = postagem.Tema is not null ? _context.Temas.FirstOrDefault(t => t.Id == postagem.Tema.Id): null; // essa linha persisti objeto na tabela,ela faz uma busca dentro _context
+
+            await _context.Postagens.AddAsync(postagem); // adicionei na fila , _context representa o banco de dados
+            await _context.SaveChangesAsync(); // persisti a informação no banco na coluna posategm
+
+            return postagem; // depois de salvar a funçao no banco ela retornar
         }
         public async  Task<Postagem?> Update(Postagem postagem)
         {
@@ -56,7 +70,17 @@ namespace blogpessoal.Service.Implements
             
             if(PostagemUpdate is null) // verficando se a informação digitida existe
                 return null;
-           
+          
+            if (postagem.Tema is not null) // verificação se temas existe se nao existir retonar nulo.
+            {
+                var BuscaTema = await _context.Temas.FindAsync(postagem.Tema.Id);
+                if (BuscaTema is null)
+                    return null;
+            }
+
+
+            postagem.Tema = postagem.Tema is not null ? _context.Temas.FirstOrDefault(t => t.Id == postagem.Tema.Id) : null;// quandp fazer a atualização persistir os dados
+
             _context.Entry(PostagemUpdate).State = EntityState.Detached; // eu nao quero a informação digitada pra fazer a procura persista
             _context.Entry(postagem).State = EntityState.Modified; // e a informaçao q quero quer persista
             await _context.SaveChangesAsync(); // salvando a alteração
