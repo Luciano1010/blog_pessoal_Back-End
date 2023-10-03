@@ -79,3 +79,5 @@ C:\Users\User\Desktop\Área de Trabalho\aspnet\Blogpessoal\blogpessoal\obj\Debug
 C:\Users\User\Desktop\Área de Trabalho\aspnet\Blogpessoal\blogpessoal\obj\Debug\net7.0\blogpessoal.pdb
 C:\Users\User\Desktop\Área de Trabalho\aspnet\Blogpessoal\blogpessoal\obj\Debug\net7.0\blogpessoal.genruntimeconfig.cache
 C:\Users\User\Desktop\Área de Trabalho\aspnet\Blogpessoal\blogpessoal\obj\Debug\net7.0\ref\blogpessoal.dll
+C:\Users\User\Desktop\Área de Trabalho\aspnet\Blogpessoal\blogpessoal\bin\Debug\net7.0\BCrypt.Net-Core.dll
+C:\Users\User\Desktop\Área de Trabalho\aspnet\Blogpessoal\blogpessoal\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

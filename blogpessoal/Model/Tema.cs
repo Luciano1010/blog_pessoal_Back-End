@@ -1,8 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
+﻿    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using blogpessoal.Model;
 
-namespace blogpessoal.Model
-{
+
     public class Tema 
     {
         [Key] // key chave primaria  // key e databasegenerated estou definindo como uma coluna do banco de dados vai funcionar
@@ -20,4 +20,4 @@ namespace blogpessoal.Model
     }
         
 
-}
+

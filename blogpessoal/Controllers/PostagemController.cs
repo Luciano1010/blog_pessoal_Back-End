@@ -1,12 +1,13 @@
 ﻿using blogpessoal.Model;
 using blogpessoal.Service;
 using FluentValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace blogpessoal.Controllers
 {
     // classe que verifica os resultados
-
+    [Authorize]
     [Route("~/postagens")] // codigo que define um lugar especifico exemplo https://exemplo.com/postagens
 
     [ApiController] // é um serviço que permite diferentes programas(aplicativos,moveis e sites) se couminiquem com meu aplicativo

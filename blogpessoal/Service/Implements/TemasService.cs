@@ -51,9 +51,9 @@ namespace blogpessoal.Service.Implements
         }
         public async Task<Tema?> Update(Tema temas)
         {
-            var TemaUpdate = await _context.Temas.FindAsync(temas.Id);
+            var TemaUpdate = await _context.Temas.FindAsync(temas.Id); // findsync é para procurar
 
-            if (TemaUpdate is null) // verficando se a informação digitida existe
+            if (TemaUpdate is null) //condicional verficando se a informação digitida existe
                 return null;
 
             _context.Entry(TemaUpdate).State = EntityState.Detached; // eu nao quero a informação digitada pra fazer a procura persista

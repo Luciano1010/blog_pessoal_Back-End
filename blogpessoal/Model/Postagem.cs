@@ -23,7 +23,7 @@ namespace blogpessoal.Model
 
         public virtual Tema? Tema { get; set; } // chave estrangeira vem da tabela Tema, virtula porque pode vim vazio
 
-
+        public virtual User? Usuario { get; set; } // chave
     }
 }
 
