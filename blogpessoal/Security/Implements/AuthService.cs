@@ -9,11 +9,12 @@ namespace blogpessoal.Model.Security.Implements
 {
     public class AuthService : IAuthService
     {
+
         private readonly IUserService _userService;
         public AuthService(IUserService userService)
 
         {
-            _userService = userService; 
+            _userService = userService; ; 
         }
         public async Task<UserLogin?> Autenticar(UserLogin userLogin)
         {
@@ -22,12 +23,12 @@ namespace blogpessoal.Model.Security.Implements
             if (userLogin is null || string.IsNullOrEmpty(userLogin.Usuario) || string.IsNullOrEmpty(userLogin.Senha))
                 return null;
 
-            var Buscausuario = await _userService.GetByUsuario(userLogin.Usuario);
+            var BuscaUsuario = await _userService.GetByUsuario(userLogin.Usuario);
 
-            if (Buscausuario is not null)
+            if (BuscaUsuario is null)
                 return null;
 
-            if(!BCrypt.Net.BCrypt.Verify(userLogin.Senha, Buscausuario.Senha))
+            if(!BCrypt.Net.BCrypt.Verify(userLogin.Senha, BuscaUsuario.Senha))
                 return null;
 
             var tokenHandler = new JwtSecurityTokenHandler();
@@ -47,9 +48,9 @@ namespace blogpessoal.Model.Security.Implements
             
             var token = tokenHandler.CreateToken(tokenDescriptor);
 
-            userLogin.Id = Buscausuario.Id;
-            userLogin.Nome = Buscausuario.Nome;
-            userLogin.Foto = Buscausuario.Foto is null? FotoDefault : Buscausuario.Foto;
+            userLogin.Id = BuscaUsuario.Id;
+            userLogin.Nome = BuscaUsuario.Nome;
+            userLogin.Foto = BuscaUsuario.Foto is null? FotoDefault : BuscaUsuario.Foto;
             userLogin.Token = "Bearer " + tokenHandler.WriteToken(token).ToString(); 
             userLogin.Senha = "";
 

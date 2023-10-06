@@ -2,7 +2,7 @@
 using blogpessoal.Service.Implements;
 using blogpessoal.Validator;
 using FluentValidation;
-using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Http.HttpResults; 
 using Microsoft.AspNetCore.Mvc;
 using blogpessoal.Service;
 using Microsoft.AspNetCore.Authorization;

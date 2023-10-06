@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace blogpessoal.Model
 {
-    // classe auxiliar para login
+    // classe auxiliar desacopla da logica da classe User e do restante do sistema
     public class UserLogin
     {
         public long Id { get; set; }

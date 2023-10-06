@@ -1,6 +1,5 @@
 ﻿using blogpessoal.Model;
 using FluentValidation;
-using FluentValidation.Validators;
 
 namespace blogpessoal.Validator
 {

@@ -26,6 +26,7 @@ namespace blogpessoal
                 .AddNewtonsoftJson(options =>
                 {
                     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore; // evita ficar no loop infinito
+                    options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore; // ela ignora os objetos null no json
                 }); // ele fornece todos os recursos para criação das classes controladoras
 
 
@@ -39,12 +40,12 @@ namespace blogpessoal
 
 
             // registrar  a Validação das Entidades 
-            builder.Services.AddTransient<IValidator<Postagem>, PostagemValidator>(); // transiente ele guarda informações somente quando aplicação estiver funcionando
-            builder.Services.AddTransient<IValidator<Tema>,TemaValidator>(); // 
+            builder.Services.AddTransient<IValidator<Postagem>, PostagemValidator>(); 
+            builder.Services.AddTransient<IValidator<Tema>,TemaValidator>(); 
             builder.Services.AddTransient<IValidator<User>, UserValidator>();
            
             // registrar as classes de serviço (service)
-            builder.Services.AddScoped<IPostagemService, PostagemService>(); // scoped ele guarda mesmo que aplicação fecha
+            builder.Services.AddScoped<IPostagemService, PostagemService>(); 
             builder.Services.AddScoped<ItemaService, TemasService>();
             builder.Services.AddScoped<IUserService, UserService>();
             builder.Services.AddScoped<IAuthService, AuthService>();
@@ -82,9 +83,9 @@ namespace blogpessoal
                 options.AddPolicy(name: "My policy",
                     policy => 
                     {
-                        policy.AllowAnyOrigin() // receber as requisições do front
-                              .AllowAnyMethod() // receber os pots,get e delete
-                              .AllowAnyHeader(); // para receber o token
+                        policy.AllowAnyOrigin() 
+                              .AllowAnyMethod() 
+                              .AllowAnyHeader(); 
                     
                     });
                 

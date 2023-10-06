@@ -10,22 +10,22 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace blogpessoal.Controllers
 {
-
+    [Authorize]
     [Route("~/usuarios")]
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly IUserService _userService; // aqui a interface vai manipular os dados sem necessidade de mexer nos dados da classe
-        private readonly IValidator<User> _userValidator; // metodo q avalia se a postagem pode ser feita
+        private readonly IUserService _userService; 
+        private readonly IValidator<User> _userValidator; 
         private readonly IAuthService _authService;
-        public UserController(IUserService UserService, IValidator<User> UserValidator, IAuthService authService)
+        public UserController(IUserService UserService, IValidator<User> UserValidator, IAuthService AuthService)
         {
             _userService = UserService;
             _userValidator = UserValidator;
-            _authService = authService;
+            _authService = AuthService;
         }
 
-        [Authorize]
+       
         [HttpGet("all")]
 
         public async Task<ActionResult> GetAll()
@@ -35,7 +35,7 @@ namespace blogpessoal.Controllers
 
         }
 
-        [Authorize]
+       
         [HttpGet("{id}")]
         public async Task<ActionResult> GetbyId(long id)
         {
@@ -47,10 +47,10 @@ namespace blogpessoal.Controllers
             return Ok(Resposta);
         }
 
-        [AllowAnonymous]
-        [HttpPost("cadastrar")] // criar
        
 
+        [AllowAnonymous]
+        [HttpPost("cadastrar")] 
         public async Task<ActionResult> Create([FromBody] User user) // frombody o objeto postagem no corpo da requisição
         {
             var validarusers = await _userValidator.ValidateAsync(user); // usando o postagem validator vai verificar se o objeto esta dentro dos parametros e sera guardado no validarPostagem         
@@ -65,17 +65,17 @@ namespace blogpessoal.Controllers
                 return BadRequest("Usuario já cadastrado!");
 
             return CreatedAtAction(nameof(GetbyId), new { id = user.Id }, user);
-            // return volta com um valor, createdAtaction manda o codigo de status 200, nameof é pegar um id novo, new cria o objeto junto com o seu id, postagem é o objeto criado com sucesso. 
+           
         }
 
 
 
-        [Authorize]
-        [HttpPut("atualizar")] // atualizar
+        
+        [HttpPut("atualizar")] 
         public async Task<ActionResult> Update([FromBody] User user)
         {
-            // verificar o id
-            if (user.Id == 0) // nao tem id 0 ou numeros negativos
+            
+            if (user.Id == 0) 
                 return BadRequest("Id da postagem é invalido");
 
             var validaruser = await _userValidator.ValidateAsync(user);
@@ -85,13 +85,13 @@ namespace blogpessoal.Controllers
             }
 
 
-            // verificar se o email e id 
+            
             var Userupadate = await _userService.GetByUsuario(user.Usuario);
            
             if (Userupadate is not null && Userupadate.Id != user.Id)
                 return BadRequest("o Usuario(e-mail) ja esta em uso");
            
-            var Resposta = await _userService.Update(user); // aqui atualiza se encontrar o id 
+            var Resposta = await _userService.Update(user); 
 
             if (Resposta is null)
                 return NotFound("Postagem não Encontrada");
@@ -102,7 +102,7 @@ namespace blogpessoal.Controllers
 
         [AllowAnonymous]
         [HttpPost("logar")] 
-        public async Task<ActionResult> Autenticar([FromBody] UserLogin userlogin) // frombody o objeto postagem no corpo da requisição
+        public async Task<ActionResult> Autenticar([FromBody] UserLogin userlogin) 
         {
             var Resposta = await _authService.Autenticar(userlogin);
 

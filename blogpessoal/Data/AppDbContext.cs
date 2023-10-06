@@ -26,8 +26,8 @@ namespace blogpessoal.Data
                 .HasOne(_ => _.Usuario) // tema lado 1
                 .WithMany(u => u.Postagem) // lado 2, tema ira se relacionar com postagens
                 .HasForeignKey("UsuarioId") // nome da chave estrangeira.
-      
                 .OnDelete(DeleteBehavior.Cascade);// quando apagar o tema - ira apagar tbm as postagens relacionadas ao tema deletado
+      
         }
 
         public DbSet<Postagem> Postagens { get; set; } = null!; // registrar  Dbset - Obejto responsavel por manipular a Tabela

@@ -37,7 +37,7 @@ namespace blogpessoal.Controllers
         {
             var Resposta = await _postagemService.GetById(id);
 
-            if (Resposta == null)
+            if (Resposta is null)
                 return NotFound();
 
             return Ok(Resposta);
