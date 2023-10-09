@@ -38,8 +38,8 @@ namespace blogpessoal.Data
           
             
             var timeZoneInfo = TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time"); 
-            var currentTime = TimeZoneInfo.ConvertTime(DateTimeOffset.Now, timeZoneInfo); 
-
+            var currentTime = TimeZoneInfo.ConvertTime(DateTimeOffset.Now, timeZoneInfo);
+            var currentTimeUtc = currentTime.ToUniversalTime();
             var insertedEntries = this.ChangeTracker.Entries()
                                    .Where(x => x.State == EntityState.Added)
                                    .Select(x => x.Entity);
@@ -48,7 +48,7 @@ namespace blogpessoal.Data
             {
                 if (insertedEntry is Auditable auditableEntity)
                 {
-                    auditableEntity.Data = currentTime;
+                    auditableEntity.Data = currentTimeUtc;
                 }
             }
 
@@ -61,7 +61,7 @@ namespace blogpessoal.Data
                 
                 if (modifiedEntry is Auditable auditableEntity)
                 {
-                    auditableEntity.Data = currentTime;
+                    auditableEntity.Data = currentTimeUtc;
                 }
             }
 
