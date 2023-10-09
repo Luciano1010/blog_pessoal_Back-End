@@ -81,3 +81,9 @@ C:\Users\User\Desktop\Área de Trabalho\aspnet\Blogpessoal\blogpessoal\obj\Debug
 C:\Users\User\Desktop\Área de Trabalho\aspnet\Blogpessoal\blogpessoal\obj\Debug\net7.0\ref\blogpessoal.dll
 C:\Users\User\Desktop\Área de Trabalho\aspnet\Blogpessoal\blogpessoal\bin\Debug\net7.0\BCrypt.Net-Core.dll
 C:\Users\User\Desktop\Área de Trabalho\aspnet\Blogpessoal\blogpessoal\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\User\Desktop\Área de Trabalho\aspnet\Blogpessoal\blogpessoal\bin\Debug\net7.0\MicroElements.Swashbuckle.FluentValidation.dll
+C:\Users\User\Desktop\Área de Trabalho\aspnet\Blogpessoal\blogpessoal\bin\Debug\net7.0\Scrutor.dll
+C:\Users\User\Desktop\Área de Trabalho\aspnet\Blogpessoal\blogpessoal\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.dll
+C:\Users\User\Desktop\Área de Trabalho\aspnet\Blogpessoal\blogpessoal\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
+C:\Users\User\Desktop\Área de Trabalho\aspnet\Blogpessoal\blogpessoal\bin\Debug\net7.0\Npgsql.dll
+C:\Users\User\Desktop\Área de Trabalho\aspnet\Blogpessoal\blogpessoal\bin\Debug\net7.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
