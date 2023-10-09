@@ -39,7 +39,7 @@ namespace blogpessoal
 
             if (builder.Configuration["Enviroment:Start"] == "PROD")
             {
-                builder.Configuration.SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("secrets,json");
+                builder.Configuration.SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("secrets.json");
                
                 var connecetionString = builder.Configuration
                 .GetConnectionString("ProdConnection");
