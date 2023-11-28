@@ -79,7 +79,7 @@ namespace blogpessoal.Service.Implements
           
             if (postagem.Tema is not null) // verificação se temas existe se nao existir retonar nulo.
             {
-                var BuscaTema = await _context.Temas.FindAsync(postagem.Tema.Id);
+                var BuscaTema = await _context.Postagem.FindAsync(postagem.Tema.Id);
                 if (BuscaTema is null)
                     return null;
 
