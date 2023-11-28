@@ -59,7 +59,7 @@ namespace blogpessoal.Service.Implements
                 if (BuscaTema is null)
                     return null;
 
-                    postagem.Tema = BuscaTema
+                    postagem.Tema = BuscaTema;
             }
 
             postagem.Tema = postagem.Tema is not null ? _context.Temas.FirstOrDefault(t => t.Id == postagem.Tema.Id): null; // essa linha persisti objeto na tabela,ela faz uma busca dentro _context
@@ -83,11 +83,11 @@ namespace blogpessoal.Service.Implements
                 if (BuscaTema is null)
                     return null;
 
-                    postagem.Tema = BuscaTema
+                    postagem.Tema = BuscaTema;
             }
 
 
-         //   postagem.Tema = postagem.Tema is not null ? _context.Temas.FirstOrDefault(t => t.Id == postagem.Tema.Id) : null;// quandp fazer a atualização persistir os dados
+            postagem.Tema = postagem.Tema is not null ? _context.Temas.FirstOrDefault(t => t.Id == postagem.Tema.Id) : null;// quandp fazer a atualização persistir os dados
             postagem.Usuario = postagem.Usuario is not null ? await _context.Users.FirstOrDefaultAsync(u => u.Id == postagem.Usuario.Id) : null;
             
             _context.Entry(PostagemUpdate).State = EntityState.Detached; // eu nao quero a informação digitada pra fazer a procura persista
