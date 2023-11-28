@@ -58,6 +58,8 @@ namespace blogpessoal.Service.Implements
                 var BuscaTema = await _context.Temas.FindAsync(postagem.Tema.Id);
                 if (BuscaTema is null)
                     return null;
+
+                    postagem.Tema = BuscaTema
             }
 
             postagem.Tema = postagem.Tema is not null ? _context.Temas.FirstOrDefault(t => t.Id == postagem.Tema.Id): null; // essa linha persisti objeto na tabela,ela faz uma busca dentro _context
@@ -80,6 +82,8 @@ namespace blogpessoal.Service.Implements
                 var BuscaTema = await _context.Temas.FindAsync(postagem.Tema.Id);
                 if (BuscaTema is null)
                     return null;
+
+                    postagem.Tema = BuscaTema
             }
 
 
