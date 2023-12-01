@@ -144,7 +144,7 @@ namespace blogpessoal
                     policy => 
                     {
                         policy.AllowAnyOrigin() 
-                              .AllowAnyMethod() 
+                              .WithMethods("GET", "POST", "PUT", "DELETE") 
                               .AllowAnyHeader()
                               .AllowMethods("PUT"); 
                     
