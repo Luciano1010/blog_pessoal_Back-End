@@ -145,7 +145,8 @@ namespace blogpessoal
                     {
                         policy.AllowAnyOrigin() 
                               .AllowAnyMethod() 
-                              .AllowAnyHeader(); 
+                              .AllowAnyHeader()
+                              .AllowMethods("PUT"); 
                     
                     });
                 
