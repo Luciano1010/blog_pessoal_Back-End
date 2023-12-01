@@ -69,7 +69,8 @@ namespace blogpessoal.Controllers
             return CreatedAtAction(nameof(GetbyId), new { id = postagem.Id }, postagem);
            // return volta com um valor, createdAtaction manda o codigo de status 200, nameof é pegar um id novo, new cria o objeto junto com o seu id, postagem é o objeto criado com sucesso. 
         }
-
+       
+        [Authorize]
         [HttpPut] // atualizar
         public async Task<ActionResult> Update([FromBody] Postagem postagem) 
         {
