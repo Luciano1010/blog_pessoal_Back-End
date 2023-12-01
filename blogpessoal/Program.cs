@@ -144,10 +144,8 @@ namespace blogpessoal
                     policy => 
                     {
                         policy.AllowAnyOrigin() 
-                              .WithMethods("GET", "POST", "PUT", "DELETE") 
-                              .AllowAnyHeader()
-                               
-                    
+                              .AllowAnyMethod() 
+                              .AllowAnyHeader(); 
                     });
                 
             }); ;
