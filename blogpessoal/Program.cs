@@ -28,6 +28,9 @@ namespace blogpessoal
             builder.Services.AddControllers()
                 .AddNewtonsoftJson(options =>
                 {
+                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore; // evita ficar no loop infinito
+                    options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore; // ela ignora os objetos null no json
+                }); // ele fornece todos os recursos para criaï¿½ï¿½o das classes controladoras
                     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore; 
                     options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore; 
                 }); 
@@ -35,7 +38,8 @@ namespace blogpessoal
 
 
 
-            // Conexão com o banco de Dados na nuvem e o else pra conexão local
+            // Conexï¿½o com o banco de Dados
+            // ConexÃ£o com o banco de Dados na nuvem e o else pra conexÃ£o local
 
             if (builder.Configuration["Enviroment:Start"] == "PROD")
             {
@@ -57,12 +61,12 @@ namespace blogpessoal
             
 
 
-            // registrar  a Validação das Entidades 
+            // registrar  a Validaï¿½ï¿½o das Entidades 
             builder.Services.AddTransient<IValidator<Postagem>, PostagemValidator>(); 
             builder.Services.AddTransient<IValidator<Tema>,TemaValidator>(); 
             builder.Services.AddTransient<IValidator<User>, UserValidator>();
            
-            // registrar as classes de serviço (service)
+            // registrar as classes de serviï¿½o (service)
             builder.Services.AddScoped<IPostagemService, PostagemService>(); 
             builder.Services.AddScoped<ItemaService, TemasService>();
             builder.Services.AddScoped<IUserService, UserService>();
@@ -97,7 +101,7 @@ namespace blogpessoal
             // customizando o swagger
             builder.Services.AddSwaggerGen(options =>
             {
-                // informações do projeto e do desenvolvedor
+                // informaï¿½ï¿½es do projeto e do desenvolvedor
                 options.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
@@ -105,7 +109,7 @@ namespace blogpessoal
                     Description = "Projeto Blog Pessoal - ASP.NET CORE 7.0",
                     Contact = new OpenApiContact
                     {
-                        Name = "Luciano Simões",
+                        Name = "Luciano Simï¿½es",
                         Email = "luciano_lopesdealmeida@hotmail.com",
                         Url = new Uri("https://github.com/Luciano1010")
                     },
@@ -117,7 +121,7 @@ namespace blogpessoal
 
                 });
 
-                // configuaraçao de segurança no swwagger
+                // configuaraï¿½ao de seguranï¿½a no swwagger
                 options.AddSecurityDefinition("JWT", new OpenApiSecurityScheme
                 {
                     In = ParameterLocation.Header,
@@ -128,7 +132,7 @@ namespace blogpessoal
                     Scheme = "Bearer"
                 });
 
-                // adicionar a indicaçao de endpoint protegido
+                // adicionar a indicaï¿½ao de endpoint protegido
                 options.OperationFilter<AuthResponsesOperationFilter>();
 
             });
@@ -137,16 +141,15 @@ namespace blogpessoal
             builder.Services.AddFluentValidationRulesToSwagger();    
 
 
-            // Configuração do CORS onde faço a configuração onde habilito que o front converse com o backend
+            // Configuraï¿½ï¿½o do CORS onde faï¿½o a configuraï¿½ï¿½o onde habilito que o front converse com o backend
             builder.Services.AddCors(options => 
             {
-                options.AddPolicy(name: "My policy",
+                options.AddPolicy(name:"MyPolicy",
                     policy => 
                     {
                         policy.AllowAnyOrigin() 
                               .AllowAnyMethod() 
                               .AllowAnyHeader(); 
-                    
                     });
                 
             }); ;
@@ -180,7 +183,7 @@ namespace blogpessoal
          
 
             
-            app.UseCors("Mypolicy");// ele inicializa o CORS
+            app.UseCors("MyPolicy");// ele inicializa o CORS
 
             app.UseAuthentication();
 

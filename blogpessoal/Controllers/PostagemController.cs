@@ -69,11 +69,12 @@ namespace blogpessoal.Controllers
             return CreatedAtAction(nameof(GetbyId), new { id = postagem.Id }, postagem);
            // return volta com um valor, createdAtaction manda o codigo de status 200, nameof é pegar um id novo, new cria o objeto junto com o seu id, postagem é o objeto criado com sucesso. 
         }
-
-        [HttpPut] // atualizar
+       
+        
+        [HttpPut] 
         public async Task<ActionResult> Update([FromBody] Postagem postagem) 
-        {
-            if (postagem.Id == 0) // nao tem id 0 ou numeros negativos
+        
+            if (postagem.Id == 0) 
                 return BadRequest("Id da postagem é invalido");
            
             var validarPostagem = await _postagemValidator.ValidateAsync(postagem);
