@@ -28,14 +28,14 @@ namespace blogpessoal
             builder.Services.AddControllers()
                 .AddNewtonsoftJson(options =>
                 {
-                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore; // evita ficar no loop infinito
-                    options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore; // ela ignora os objetos null no json
-                }); // ele fornece todos os recursos para criação das classes controladoras
+                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore; 
+                    options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore; 
+                }); 
 
 
 
 
-            // Conexão com o banco de Dados
+            // Conexão com o banco de Dados na nuvem e o else pra conexão local
 
             if (builder.Configuration["Enviroment:Start"] == "PROD")
             {
