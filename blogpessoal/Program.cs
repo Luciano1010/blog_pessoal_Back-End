@@ -154,6 +154,8 @@ namespace blogpessoal
             }); 
 
             var app = builder.Build();
+            
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
             // Criar o banco de dados e as tabelas automaticamente
             using(var scope = app.Services.CreateAsyncScope()) // CreateasyScope cria o banco de dados e as tabelas e consulta os contextos
