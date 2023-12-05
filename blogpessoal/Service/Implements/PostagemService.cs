@@ -62,7 +62,7 @@ namespace blogpessoal.Service.Implements
                     postagem.Tema = BuscaTema;
             }
 
-            postagem.Tema = postagem.Tema is not null ? _context.Temas.FirstOrDefault(t => t.Id == postagem.Tema.Id): null; // essa linha persisti objeto na tabela,ela faz uma busca dentro _context
+            
             postagem.Usuario = postagem.Usuario is not null ? await _context.Users.FirstOrDefaultAsync(u => u.Id == postagem.Usuario.Id) : null;
 
             await _context.Postagens.AddAsync(postagem); 
@@ -87,7 +87,7 @@ namespace blogpessoal.Service.Implements
             }
 
 
-            postagem.Tema = postagem.Tema is not null ? _context.Temas.FirstOrDefault(t => t.Id == postagem.Tema.Id): null; // essa linha persisti objeto na tabela,ela faz uma busca dentro _context
+         
             postagem.Usuario = postagem.Usuario is not null ? await _context.Users.FirstOrDefaultAsync(u => u.Id == postagem.Usuario.Id) : null;            
             _context.Entry(PostagemUpdate).State = EntityState.Detached; 
             _context.Entry(postagem).State = EntityState.Modified; 
