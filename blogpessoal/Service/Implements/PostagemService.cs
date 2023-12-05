@@ -1,7 +1,7 @@
 ﻿using blogpessoal.Data;
 using blogpessoal.Model;
 using Microsoft.EntityFrameworkCore;
-using System.Runtime.CompilerServices;
+
 
 namespace blogpessoal.Service.Implements
 {
