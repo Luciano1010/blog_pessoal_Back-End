@@ -148,9 +148,10 @@ namespace blogpessoal
                         policy.AllowAnyOrigin() 
                               .AllowAnyMethod() 
                               .AllowAnyHeader(); 
+                               policy.WithOrigins("https://blogpessoal-frontend-seven.vercel.app");
                     });
                 
-            }); ;
+            }); 
 
             var app = builder.Build();
 
