@@ -73,7 +73,7 @@ namespace blogpessoal.Controllers
         
         [HttpPut] 
         public async Task<ActionResult> Update([FromBody] Postagem postagem) 
-        
+        {
             if (postagem.Id == 0) 
                 return BadRequest("Id da postagem é invalido");
            
