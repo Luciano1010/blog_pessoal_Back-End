@@ -31,9 +31,7 @@ namespace blogpessoal
                     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore; // evita ficar no loop infinito
                     options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore; // ela ignora os objetos null no json
                 }); // ele fornece todos os recursos para cria��o das classes controladoras
-                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore; 
-                    options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore; 
-                }); 
+                 
 
 
 
