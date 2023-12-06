@@ -35,7 +35,6 @@ namespace blogpessoal.Data
         public DbSet<User> Users { get; set; } = null!;
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
-
             var insertedEntries = this.ChangeTracker.Entries()
                                    .Where(x => x.State == EntityState.Added)
                                    .Select(x => x.Entity);
@@ -45,8 +44,7 @@ namespace blogpessoal.Data
                 //Se uma propriedade da Classe Auditable estiver sendo criada. 
                 if (insertedEntry is Auditable auditableEntity)
                 {
-                    //auditableEntity.Data = DateTimeOffset.Now;
-                    auditableEntity.Data = new DateTimeOffset(DateTime.Now, new TimeSpan(-3,0,0));
+                    auditableEntity.Data = new DateTimeOffset(DateTime.Now, new TimeSpan(-3, 0, 0));
                 }
             }
 
@@ -59,13 +57,11 @@ namespace blogpessoal.Data
                 //Se uma propriedade da Classe Auditable estiver sendo atualizada.  
                 if (modifiedEntry is Auditable auditableEntity)
                 {
-                    //auditableEntity.Data = DateTimeOffset.Now;
                     auditableEntity.Data = new DateTimeOffset(DateTime.Now, new TimeSpan(-3, 0, 0));
                 }
             }
 
             return base.SaveChangesAsync(cancellationToken);
         }
-
     }
 }
