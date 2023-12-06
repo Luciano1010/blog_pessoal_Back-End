@@ -18,25 +18,16 @@ namespace blogpessoal.Service.Implements
 
         public async Task<IEnumerable<Postagem>> GetAll()
         {
-           return await _context.Postagens
-        .AsNoTracking()
-        .Include(p => p.Tema)
-        .Include(p => p.Usuario)
-        .ToListAsync();
+          return await _context.Postagens.Include(p => p.Tema).Include(p => p.Usuario).ToListAsync();
       }
 
         public async Task<Postagem?> GetById(long id) // metodo que vou utilizar pra atualizar os dados por id
         {
-            try // depois tratamento de erro caso nao ache nenhuma postagem
-            {
-                var Postagem = await _context.Postagens
-                    .Include(p => p.Tema)
-                    .Include(p => p.Usuario)
-                    .FirstAsync(i => i.Id == id); // primeiro definir o modo de busca
+          try {
+                var Postagem = await _context.Postagens.Include(p => p.Tema).Include(p => p.Usuario).FirstAsync(i => i.Id == id);
                 return Postagem;
             }
-            catch
-            {
+            catch {
                 return null;
             }
         }
@@ -44,15 +35,12 @@ namespace blogpessoal.Service.Implements
         public async Task<IEnumerable<Postagem>> GetByTitulo(string titulo)
             {
                 var Postagem = await _context.Postagens
-                    .AsNoTracking()
-                    .Include(p => p.Tema)
-                    .Include(p => p.Usuario)
-                    .Where(p => p.Titulo.ToUpper()
-                         .Contains(titulo.ToUpper())
-                    )
-                    .ToListAsync();
-                
-                return Postagem;
+                                .Include(p => p.Tema)
+                                .Include(p => p.Usuario)
+                                .Where(p => p.Titulo.Contains(titulo))
+                                .ToListAsync();
+
+            return Postagem;
             }
 
         public async Task<Postagem?> Create(Postagem postagem) //  cria uma nova postagem
