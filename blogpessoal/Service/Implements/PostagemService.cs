@@ -1,7 +1,7 @@
 ﻿using blogpessoal.Data;
 using blogpessoal.Model;
 using Microsoft.EntityFrameworkCore;
-using System.Runtime.CompilerServices;
+
 
 namespace blogpessoal.Service.Implements
 {
@@ -16,40 +16,32 @@ namespace blogpessoal.Service.Implements
             _context = context; // isso permite que a classe postagemservice use o contexto banco de dados para realizar operações relacioanados as postagens
         }
 
-        public async Task<IEnumerable<Postagem>> GetAll() // quando colocar o async/await permite que o programa continue rodando enquato busca noa banco de dados
+        public async Task<IEnumerable<Postagem>> GetAll()
         {
-            return await _context.Postagens
-                .Include(p => p.Tema)
-                .Include(p => p.Usuario)
-                .ToListAsync();
-        }
+          return await _context.Postagens.Include(p => p.Tema).Include(p => p.Usuario).ToListAsync();
+      }
 
         public async Task<Postagem?> GetById(long id) // metodo que vou utilizar pra atualizar os dados por id
         {
-            try // depois tratamento de erro caso nao ache nenhuma postagem
-            {
-                var Postagem = await _context.Postagens
-                    .Include(p => p.Tema)
-                    .Include(p => p.Usuario)
-                    .FirstAsync(i => i.Id == id); // primeiro definir o modo de busca
+          try {
+                var Postagem = await _context.Postagens.Include(p => p.Tema).Include(p => p.Usuario).FirstAsync(i => i.Id == id);
                 return Postagem;
             }
-            catch
-            {
+            catch {
                 return null;
             }
         }
 
-        public async Task<IEnumerable<Postagem>> GetByTitulo(string Titulo) // semelhante a consulta like em um banco de dados                          // semelhante ao like do banco de dados
-        {
-            var Postagem = await _context.Postagens // (local) _context pega todos os livros de postagens e guarda as informações em Postagem
-                                 .Include(p => p.Tema)
-                                 .Include(p => p.Usuario)
-                                 .Where(p => p.Titulo.Contains(Titulo)) // em postagens tem a palavra Titulo? esse metodo faz a procura
-                                 .ToListAsync(); // ao achar as postagens que contem Titiulo organize em uma lista e que sera guardada na variavel postagem
-            return Postagem; // retorne a lista 
-        
-        }
+        public async Task<IEnumerable<Postagem>> GetByTitulo(string titulo)
+            {
+                var Postagem = await _context.Postagens
+                                .Include(p => p.Tema)
+                                .Include(p => p.Usuario)
+                                .Where(p => p.Titulo.Contains(titulo))
+                                .ToListAsync();
+
+            return Postagem;
+            }
 
         public async Task<Postagem?> Create(Postagem postagem) //  cria uma nova postagem
         {
@@ -87,7 +79,7 @@ namespace blogpessoal.Service.Implements
             }
 
 
-            
+         
             postagem.Usuario = postagem.Usuario is not null ? await _context.Users.FirstOrDefaultAsync(u => u.Id == postagem.Usuario.Id) : null;            
             _context.Entry(PostagemUpdate).State = EntityState.Detached; 
             _context.Entry(postagem).State = EntityState.Modified; 

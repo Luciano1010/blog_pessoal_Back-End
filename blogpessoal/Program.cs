@@ -31,9 +31,7 @@ namespace blogpessoal
                     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore; // evita ficar no loop infinito
                     options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore; // ela ignora os objetos null no json
                 }); // ele fornece todos os recursos para cria��o das classes controladoras
-                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore; 
-                    options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore; 
-                }); 
+                 
 
 
 
@@ -150,11 +148,14 @@ namespace blogpessoal
                         policy.AllowAnyOrigin() 
                               .AllowAnyMethod() 
                               .AllowAnyHeader(); 
+                               
                     });
                 
-            }); ;
+            }); 
 
             var app = builder.Build();
+            
+           
 
             // Criar o banco de dados e as tabelas automaticamente
             using(var scope = app.Services.CreateAsyncScope()) // CreateasyScope cria o banco de dados e as tabelas e consulta os contextos
