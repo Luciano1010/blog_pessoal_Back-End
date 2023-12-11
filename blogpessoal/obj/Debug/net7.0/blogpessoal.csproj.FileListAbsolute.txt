@@ -1,0 +1,8 @@
+C:\Users\User\Desktop\Área de Trabalho\aspnet\Blogpessoal\BlogPessoal\obj\Debug\net7.0\blogpessoal.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\Área de Trabalho\aspnet\Blogpessoal\BlogPessoal\obj\Debug\net7.0\blogpessoal.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\Área de Trabalho\aspnet\Blogpessoal\BlogPessoal\obj\Debug\net7.0\blogpessoal.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\Área de Trabalho\aspnet\Blogpessoal\BlogPessoal\obj\Debug\net7.0\blogpessoal.AssemblyInfo.cs
+C:\Users\User\Desktop\Área de Trabalho\aspnet\Blogpessoal\BlogPessoal\obj\Debug\net7.0\blogpessoal.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Área de Trabalho\aspnet\Blogpessoal\BlogPessoal\obj\Debug\net7.0\blogpessoal.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\User\Desktop\Área de Trabalho\aspnet\Blogpessoal\BlogPessoal\obj\Debug\net7.0\blogpessoal.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\User\Desktop\Área de Trabalho\aspnet\Blogpessoal\BlogPessoal\obj\Debug\net7.0\blogpessoal.sourcelink.json
