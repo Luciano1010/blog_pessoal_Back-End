@@ -3671,11 +3671,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\Área de Trabalho\\aspnet\\Blogpessoal\\blogpessoal\\blogpessoal.csproj",
+      "projectUniqueName": "C:\\Users\\User\\OneDrive\\Documentos\\BlogPessoalC#\\blog_pessoal_Back-End\\blogpessoal\\blogpessoal.csproj",
       "projectName": "blogpessoal",
-      "projectPath": "C:\\Users\\User\\Desktop\\Área de Trabalho\\aspnet\\Blogpessoal\\blogpessoal\\blogpessoal.csproj",
+      "projectPath": "C:\\Users\\User\\OneDrive\\Documentos\\BlogPessoalC#\\blog_pessoal_Back-End\\blogpessoal\\blogpessoal.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Desktop\\Área de Trabalho\\aspnet\\Blogpessoal\\blogpessoal\\obj\\",
+      "outputPath": "C:\\Users\\User\\OneDrive\\Documentos\\BlogPessoalC#\\blog_pessoal_Back-End\\blogpessoal\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -3785,5 +3785,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'System.IdentityModel.Tokens.Jwt' 7.0.2 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-59j7-ghrg-fj52",
+      "libraryId": "System.IdentityModel.Tokens.Jwt",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    }
+  ]
 }

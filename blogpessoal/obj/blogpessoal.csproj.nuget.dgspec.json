@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Desktop\\Área de Trabalho\\aspnet\\Blogpessoal\\blogpessoal\\blogpessoal.csproj": {}
+    "C:\\Users\\User\\OneDrive\\Documentos\\BlogPessoalC#\\blog_pessoal_Back-End\\blogpessoal\\blogpessoal.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Desktop\\Área de Trabalho\\aspnet\\Blogpessoal\\blogpessoal\\blogpessoal.csproj": {
+    "C:\\Users\\User\\OneDrive\\Documentos\\BlogPessoalC#\\blog_pessoal_Back-End\\blogpessoal\\blogpessoal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\Área de Trabalho\\aspnet\\Blogpessoal\\blogpessoal\\blogpessoal.csproj",
+        "projectUniqueName": "C:\\Users\\User\\OneDrive\\Documentos\\BlogPessoalC#\\blog_pessoal_Back-End\\blogpessoal\\blogpessoal.csproj",
         "projectName": "blogpessoal",
-        "projectPath": "C:\\Users\\User\\Desktop\\Área de Trabalho\\aspnet\\Blogpessoal\\blogpessoal\\blogpessoal.csproj",
+        "projectPath": "C:\\Users\\User\\OneDrive\\Documentos\\BlogPessoalC#\\blog_pessoal_Back-End\\blogpessoal\\blogpessoal.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\Área de Trabalho\\aspnet\\Blogpessoal\\blogpessoal\\obj\\",
+        "outputPath": "C:\\Users\\User\\OneDrive\\Documentos\\BlogPessoalC#\\blog_pessoal_Back-End\\blogpessoal\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
