@@ -1,32 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\OneDrive\\Documentos\\BlogPessoalC#\\blog_pessoal_Back-End\\blogpessoal\\blogpessoal.csproj": {}
+    "C:\\Users\\User\\OneDrive\\Documentos\\BlogPessoalC#\\blog_pessoal_Back-End\\Blogpessoal\\blogpessoal.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\OneDrive\\Documentos\\BlogPessoalC#\\blog_pessoal_Back-End\\blogpessoal\\blogpessoal.csproj": {
+    "C:\\Users\\User\\OneDrive\\Documentos\\BlogPessoalC#\\blog_pessoal_Back-End\\Blogpessoal\\blogpessoal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\OneDrive\\Documentos\\BlogPessoalC#\\blog_pessoal_Back-End\\blogpessoal\\blogpessoal.csproj",
+        "projectUniqueName": "C:\\Users\\User\\OneDrive\\Documentos\\BlogPessoalC#\\blog_pessoal_Back-End\\Blogpessoal\\blogpessoal.csproj",
         "projectName": "blogpessoal",
-        "projectPath": "C:\\Users\\User\\OneDrive\\Documentos\\BlogPessoalC#\\blog_pessoal_Back-End\\blogpessoal\\blogpessoal.csproj",
+        "projectPath": "C:\\Users\\User\\OneDrive\\Documentos\\BlogPessoalC#\\blog_pessoal_Back-End\\Blogpessoal\\blogpessoal.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\OneDrive\\Documentos\\BlogPessoalC#\\blog_pessoal_Back-End\\blogpessoal\\obj\\",
+        "outputPath": "C:\\Users\\User\\OneDrive\\Documentos\\BlogPessoalC#\\blog_pessoal_Back-End\\Blogpessoal\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net7.0"
+          "net8.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -37,8 +37,8 @@
         }
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "BCrypt.Net-Core": {
               "target": "Package",
@@ -46,7 +46,7 @@
             },
             "FluentValidation": {
               "target": "Package",
-              "version": "[11.7.1, )"
+              "version": "[11.8.0, )"
             },
             "MicroElements.Swashbuckle.FluentValidation": {
               "target": "Package",
@@ -54,37 +54,38 @@
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
-              "version": "[7.0.11, )"
+              "version": "[8.0.0, )"
             },
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
-              "version": "[7.0.11, )"
+              "version": "[8.0.0, )"
             },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
-              "version": "[7.0.11, )"
+              "version": "[8.0.0, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.11, )"
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[7.0.11, )"
+              "version": "[8.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.11, )"
-            },
-            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
-              "target": "Package",
-              "version": "[1.19.4, )"
+              "version": "[8.0.0, )"
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
-              "version": "[7.0.11, )"
+              "version": "[8.0.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -96,7 +97,7 @@
             },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
-              "version": "[7.0.2, )"
+              "version": "[8.0.0, )"
             }
           },
           "imports": [
@@ -118,7 +119,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
